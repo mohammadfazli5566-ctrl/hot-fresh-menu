@@ -10,20 +10,19 @@
     body {
       margin: 0;
       font-family: Arial, Helvetica, sans-serif;
-      background: #0f0f10;
-      color: #ffffff;
+      background: #0d0d0f;
+      color: #fff;
       line-height: 1.5;
     }
 
     :root {
-      --red: #d62828;
-      --red-light: #ef4444;
-      --gold: #f6c453;
-      --card: #171718;
-      --card-2: #1f1f21;
-      --border: #2c2c2f;
-      --text-soft: #cfcfd4;
-      --text-muted: #9c9ca3;
+      --red: #d61f26;
+      --gold: #f7c64b;
+      --card: #161619;
+      --card2: #1d1d21;
+      --border: #2b2b31;
+      --soft: #d9d9df;
+      --muted: #9c9ca4;
     }
 
     a { color: inherit; text-decoration: none; }
@@ -32,143 +31,96 @@
       position: relative;
       overflow: hidden;
       background:
-        linear-gradient(rgba(0,0,0,0.68), rgba(0,0,0,0.82)),
-        url('https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=1400&q=80') center/cover;
+        linear-gradient(rgba(0,0,0,0.72), rgba(0,0,0,0.86)),
+        url('https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=1600&q=80') center/cover;
       border-bottom: 3px solid var(--red);
     }
 
-    .hero::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(circle at top right, rgba(214,40,40,0.25), transparent 35%);
-      pointer-events: none;
+    .hero-inner {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 26px 18px 34px;
+      text-align: center;
     }
 
-    .hero-inner {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 28px 18px 36px;
-      position: relative;
-      z-index: 1;
-      text-align: center;
+    .badge {
+      display: inline-block;
+      padding: 7px 14px;
+      border-radius: 999px;
+      background: rgba(214,31,38,0.15);
+      border: 1px solid rgba(214,31,38,0.35);
+      color: #ffd8da;
+      margin-bottom: 14px;
+      font-size: 0.92rem;
     }
 
     .logo-wrap {
       width: 220px;
       height: 220px;
-      margin: 0 auto 18px;
+      margin: 0 auto 16px;
+      background: rgba(255,255,255,0.97);
       border-radius: 28px;
-      background: rgba(255,255,255,0.96);
       display: flex;
       align-items: center;
       justify-content: center;
       padding: 14px;
-      box-shadow: 0 12px 30px rgba(0,0,0,0.3);
+      box-shadow: 0 10px 28px rgba(0,0,0,0.28);
     }
 
     .logo {
       width: 100%;
       height: 100%;
       object-fit: contain;
-      border-radius: 18px;
-    }
-
-    .badge {
-      display: inline-block;
-      background: rgba(214,40,40,0.16);
-      color: #ffd7d7;
-      border: 1px solid rgba(214,40,40,0.35);
-      padding: 7px 12px;
-      border-radius: 999px;
-      font-size: 0.88rem;
-      margin-bottom: 12px;
+      border-radius: 20px;
     }
 
     h1 {
       margin: 0;
-      font-size: clamp(2rem, 5vw, 3.2rem);
-      color: #fff;
-      letter-spacing: 0.4px;
+      font-size: clamp(2rem, 4vw, 3.3rem);
+      line-height: 1.15;
     }
 
     .subtitle {
-      margin: 10px auto 0;
+      margin-top: 10px;
       color: var(--gold);
+      font-size: 1.2rem;
       font-weight: bold;
-      font-size: 1.04rem;
     }
 
-    .subfa {
+    .subtitle-fa {
       margin-top: 6px;
-      color: #f2f2f2;
-      font-size: 0.96rem;
+      color: #f1f1f1;
+      font-size: 1rem;
     }
 
     .contact-box {
       margin: 20px auto 0;
-      max-width: 760px;
-      background: rgba(17,17,18,0.78);
+      max-width: 900px;
+      background: rgba(10,10,11,0.7);
       border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 18px;
-      padding: 16px;
-      backdrop-filter: blur(3px);
+      border-radius: 20px;
+      padding: 18px;
     }
 
     .contact-grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 10px;
+      gap: 14px;
       text-align: left;
-      color: var(--text-soft);
-      font-size: 0.97rem;
+      color: var(--soft);
     }
-
-    .cta-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      justify-content: center;
-      margin-top: 18px;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-width: 150px;
-      padding: 12px 18px;
-      border-radius: 12px;
-      font-weight: bold;
-      transition: 0.2s ease;
-      border: 1px solid transparent;
-    }
-
-    .btn-primary {
-      background: var(--red);
-      color: #fff;
-      box-shadow: 0 8px 24px rgba(214,40,40,0.28);
-    }
-
-    .btn-secondary {
-      background: transparent;
-      color: #fff;
-      border-color: rgba(255,255,255,0.18);
-    }
-
-    .btn:hover { transform: translateY(-1px); }
 
     .top-nav {
       position: sticky;
       top: 0;
       z-index: 20;
-      background: rgba(12,12,13,0.92);
-      backdrop-filter: blur(8px);
+      background: rgba(10,10,11,0.94);
       border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(8px);
     }
 
     .top-nav-inner {
-      max-width: 1100px;
+      max-width: 1180px;
       margin: 0 auto;
       padding: 10px 12px;
       display: flex;
@@ -180,67 +132,72 @@
       white-space: nowrap;
       padding: 9px 13px;
       border-radius: 999px;
-      background: #1a1a1c;
-      color: #f1f1f1;
-      border: 1px solid #2a2a2d;
+      background: #1a1a1f;
+      border: 1px solid #2d2d33;
+      color: #f4f4f6;
       font-size: 0.94rem;
     }
 
     .container {
-      max-width: 1100px;
+      max-width: 1180px;
       margin: 0 auto;
-      padding: 22px 14px 34px;
+      padding: 22px 14px 40px;
     }
 
-    .intro-card,
+    .poster-card,
     .section,
-    .qr-card {
-      background: linear-gradient(180deg, var(--card), var(--card-2));
+    .social-card,
+    .notice-card {
+      background: linear-gradient(180deg, var(--card), var(--card2));
       border: 1px solid var(--border);
       border-radius: 22px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.18);
-    }
-
-    .intro-card {
-      padding: 18px;
+      box-shadow: 0 10px 26px rgba(0,0,0,0.18);
       margin-bottom: 18px;
     }
 
-    .intro-card h2 {
-      margin: 0 0 8px;
-      color: var(--gold);
-      font-size: 1.35rem;
-    }
-
-    .intro-card p {
-      margin: 0;
-      color: var(--text-soft);
+    .poster-card,
+    .notice-card,
+    .social-card {
+      padding: 18px;
     }
 
     .section {
       padding: 18px;
-      margin-bottom: 18px;
     }
 
     .section-title {
       display: flex;
-      align-items: center;
       justify-content: space-between;
-      gap: 10px;
-      margin-bottom: 14px;
+      gap: 12px;
+      align-items: end;
       padding-bottom: 10px;
-      border-bottom: 2px solid rgba(214,40,40,0.35);
+      border-bottom: 2px solid rgba(214,31,38,0.35);
+      margin-bottom: 14px;
     }
 
-    .section-title h2 {
+    .section-title h2,
+    .poster-card h2,
+    .notice-card h2,
+    .social-card h2 {
       margin: 0;
       color: #fff;
-      font-size: 1.5rem;
+      font-size: 1.55rem;
     }
 
     .section-sub {
-      color: var(--text-muted);
+      color: var(--muted);
       font-size: 0.92rem;
+      text-align: right;
+    }
+
+    .poster-img {
+      width: 100%;
+      max-width: 940px;
+      display: block;
+      margin: 16px auto 0;
+      border-radius: 20px;
+      border: 1px solid var(--border);
+      box-shadow: 0 8px 26px rgba(0,0,0,0.24);
     }
 
     .menu-grid {
@@ -252,11 +209,11 @@
     .menu-item {
       display: flex;
       justify-content: space-between;
-      gap: 14px;
+      gap: 12px;
       padding: 14px;
-      border-radius: 16px;
       background: rgba(255,255,255,0.02);
       border: 1px solid rgba(255,255,255,0.05);
+      border-radius: 16px;
     }
 
     .item-name {
@@ -264,10 +221,16 @@
       font-size: 1rem;
     }
 
+    .item-fa {
+      margin-top: 4px;
+      color: var(--soft);
+      font-size: 0.9rem;
+    }
+
     .item-desc {
-      font-size: 0.92rem;
-      color: var(--text-soft);
       margin-top: 5px;
+      color: var(--muted);
+      font-size: 0.9rem;
     }
 
     .price {
@@ -277,82 +240,62 @@
       font-size: 1rem;
     }
 
-    .extras-list {
+    .two-col {
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 10px;
-      margin-top: 12px;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
     }
 
-    .extra-box {
-      padding: 12px;
-      border-radius: 14px;
-      background: rgba(214,40,40,0.08);
-      border: 1px solid rgba(214,40,40,0.18);
-      color: #f8f8f8;
-    }
-
-    .extra-box strong {
-      display: block;
-      margin-bottom: 6px;
-      color: #fff;
-    }
-
-    .qr-card {
-      padding: 22px;
-      text-align: center;
+    .list-note {
+      color: var(--muted);
+      font-size: 0.92rem;
       margin-top: 8px;
     }
 
-    .qr-card h2 {
-      margin-top: 0;
-      color: var(--gold);
-    }
-
-    .qr-card p {
-      color: var(--text-soft);
-      margin-bottom: 16px;
-    }
-
-    .qr-card img {
-      width: 190px;
-      max-width: 100%;
-      background: white;
-      padding: 12px;
-      border-radius: 16px;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.2);
-    }
-
-    .qr-help {
+    .social-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
       margin-top: 14px;
-      color: var(--text-muted);
-      font-size: 0.92rem;
+    }
+
+    .social-box {
+      padding: 14px;
+      border-radius: 16px;
+      background: rgba(214,31,38,0.08);
+      border: 1px solid rgba(214,31,38,0.18);
     }
 
     footer {
       text-align: center;
-      color: var(--text-muted);
-      padding: 30px 16px 40px;
+      color: var(--muted);
+      padding: 14px 14px 38px;
       font-size: 0.92rem;
     }
 
-    @media (max-width: 860px) {
+    @media (max-width: 900px) {
+      .contact-grid,
       .menu-grid,
-      .extras-list,
-      .contact-grid {
+      .two-col,
+      .social-grid {
         grid-template-columns: 1fr;
       }
     }
 
     @media (max-width: 560px) {
-      .hero-inner { padding-top: 20px; }
+      .logo-wrap {
+        width: 180px;
+        height: 180px;
+      }
+
       .menu-item {
         flex-direction: column;
         gap: 8px;
       }
+
       .price { align-self: flex-start; }
-      .btn { width: 100%; }
-      .cta-row { flex-direction: column; }
+      .section-title { flex-direction: column; align-items: start; }
+      .section-sub { text-align: left; }
     }
   </style>
 </head>
@@ -361,18 +304,18 @@
     <div class="hero-inner">
       <div class="badge">Digitale Speisekarte</div>
       <div class="logo-wrap">
-        <img src="logo.png" alt="Hot & Fresh Cuisine Logo" class="logo">
+        <img src="logo.jpeg" alt="Hot & Fresh Cuisine Logo" class="logo">
       </div>
       <h1>Hot & Fresh Cuisine</h1>
       <div class="subtitle">Frisch • Heiß • Lecker</div>
-      <div class="subfa">تازه • داغ • خوشمزه</div>
+      <div class="subtitle-fa">تازه • داغ • خوشمزه</div>
 
       <div class="contact-box">
         <div class="contact-grid">
           <div><strong>Adresse:</strong><br>Hohe Straße 7, 47051 Duisburg</div>
           <div><strong>Öffnungszeiten:</strong><br>Mo – So: 12:00 – 23:00 Uhr</div>
-          <div><strong>Instagram:</strong><br>@hot.fresh.duisburg7</div>
-          <div><strong>TikTok:</strong><br>@tiktok.hotfresh7</div>
+          <div><strong>Telefon:</strong><br>0203-41717510 / 0203-41717909</div>
+          <div><strong>Instagram / TikTok:</strong><br>@hot.fresh.duisburg7<br>@tiktok.hotfresh7</div>
         </div>
       </div>
     </div>
@@ -380,109 +323,168 @@
 
   <nav class="top-nav">
     <div class="top-nav-inner">
+      <a href="#poster" class="nav-pill">Menükarte</a>
       <a href="#pizza" class="nav-pill">Pizza</a>
-      <a href="#burger" class="nav-pill">Burger</a>
-      <a href="#snacks" class="nav-pill">Snacks</a>
+      <a href="#burger-pasta" class="nav-pill">Burger & Pasta</a>
       <a href="#afghanisch" class="nav-pill">Afghanische Gerichte</a>
-      <a href="#getraenke" class="nav-pill">Getränke</a>
+      <a href="#snacks" class="nav-pill">Snacks</a>
+      <a href="#getraenke" class="nav-pill">Getränke & Tee</a>
       <a href="#social" class="nav-pill">Social Media</a>
     </div>
   </nav>
 
   <main class="container">
-    <section class="intro-card">
-      <h2>Digitale Menükarte</h2>
-      <p>Oben sehen Ihre Kunden eine schöne digitale Menükarte im Poster-Stil. Darunter bleibt die komplette Speisekarte in HTML, damit alles auch auf dem Handy gut lesbar ist.</p>
+    <section id="poster" class="poster-card">
+      <h2>Schöne digitale Menükarte</h2>
+      <p class="list-note">Hier können Sie ein schönes Poster-Bild zeigen. Speichern Sie die Design-Datei einfach als <strong>menu-poster.png</strong> im gleichen Ordner wie index.html. Darunter bleibt die komplette Speisekarte lesbar und vollständig.</p>
+      <img src="menu-poster.png" alt="Digitale Menükarte Hot & Fresh Cuisine" class="poster-img">
     </section>
 
-    <section class="section">
-      <div class="section-title">
-        <h2>Unsere Menükarte</h2>
-        <div class="section-sub">Schönes digitales Design</div>
-      </div>
-      <div style="text-align:center;">
-        <img src="menu-poster.png" alt="Digitale Menükarte Hot & Fresh Cuisine" style="width:100%; max-width:900px; border-radius:20px; border:1px solid #2c2c2f; box-shadow:0 10px 30px rgba(0,0,0,0.25);">
-      </div>
+    <section class="notice-card">
+      <h2>Hinweis</h2>
+      <p class="list-note">Ich habe Ihre Speisekarte aus den Fotos sauber übernommen und Schreibfehler bestmöglich korrigiert. Bei einigen handschriftlich geänderten Preisen sollten Sie am Ende bitte noch kurz selbst prüfen, ob alles genau so aktuell ist, wie Sie es möchten.</p>
     </section>
+
     <section id="pizza" class="section">
       <div class="section-title">
         <h2>🍕 Pizza</h2>
-        <div class="section-sub">Alle Pizzen mit Tomatensauce und Käse</div>
+        <div class="section-sub">Alle Pizzen auch mit Käserand erhältlich<br>همه پیتزا ها با لبه پنیری موجود است</div>
       </div>
       <div class="menu-grid">
-        <div class="menu-item"><div><div class="item-name">Margherita</div><div class="item-desc">Tomatensauce und Käse</div></div><div class="price">7,50 €</div></div>
-        <div class="menu-item"><div><div class="item-name">Salami</div><div class="item-desc">Tomatensauce, Käse und Salami</div></div><div class="price">8,50 €</div></div>
-        <div class="menu-item"><div><div class="item-name">Tonno</div><div class="item-desc">Tomatensauce, Käse und Thunfisch</div></div><div class="price">8,50 €</div></div>
-        <div class="menu-item"><div><div class="item-name">Hawaii</div><div class="item-desc">Tomatensauce, Käse, Schinken und Ananas</div></div><div class="price">9,00 €</div></div>
-        <div class="menu-item"><div><div class="item-name">Vegetaria</div><div class="item-desc">Mit Broccoli, Spinat, Paprika, Pilzen und Zwiebeln</div></div><div class="price">8,50 €</div></div>
-        <div class="menu-item"><div><div class="item-name">Hot & Fresh Spezial</div><div class="item-desc">Spezialpizza des Hauses</div></div><div class="price">10,00 €</div></div>
+        <div class="menu-item"><div><div class="item-name">01 Margherita</div><div class="item-fa">مارگاریتا</div><div class="item-desc">mit Tomaten und Käse</div></div><div class="price">7,50 €</div></div>
+        <div class="menu-item"><div><div class="item-name">02 Scharfe Pizza</div><div class="item-fa">پیتزای تند</div><div class="item-desc">Salami, Jalapeños</div></div><div class="price">8,00 €</div></div>
+        <div class="menu-item"><div><div class="item-name">03 Salami</div><div class="item-fa">سالامی</div><div class="item-desc">mit Salami</div></div><div class="price">7,50 €</div></div>
+        <div class="menu-item"><div><div class="item-name">04 Prosciutto</div><div class="item-fa">ژامبون</div><div class="item-desc">mit Truthahn-Schinken</div></div><div class="price">8,00 €</div></div>
+        <div class="menu-item"><div><div class="item-name">05 Funghi</div><div class="item-fa">قارچ</div><div class="item-desc">mit Champignons</div></div><div class="price">8,00 €</div></div>
+        <div class="menu-item"><div><div class="item-name">06 Tonno</div><div class="item-fa">تونو</div><div class="item-desc">mit Thunfisch und Zwiebeln</div></div><div class="price">8,00 €</div></div>
+        <div class="menu-item"><div><div class="item-name">07 Vegetaria</div><div class="item-fa">سبزیجات</div><div class="item-desc">mit Broccoli, Spinat, Paprika, Pilzen, Zwiebeln</div></div><div class="price">8,50 €</div></div>
+        <div class="menu-item"><div><div class="item-name">08 Pollo</div><div class="item-fa">پولو</div><div class="item-desc">mit Thunfisch, Zwiebeln</div></div><div class="price">9,00 €</div></div>
+        <div class="menu-item"><div><div class="item-name">09 Spicy Chicken</div><div class="item-fa">مرغ تند</div><div class="item-desc">mit Hähnchen, Zwiebeln, Paprika, Jalapeños</div></div><div class="price">9,00 €</div></div>
+        <div class="menu-item"><div><div class="item-name">10 Hawaii Spezial</div><div class="item-fa">هاوایی مخصوص</div><div class="item-desc">mit Truthahn-Schinken, Ananas</div></div><div class="price">8,00 €</div></div>
+        <div class="menu-item"><div><div class="item-name">11 Milano</div><div class="item-fa">میلانو</div><div class="item-desc">mit Truthahn-Schinken, Thunfisch, Pilzen, Spinat</div></div><div class="price">9,00 €</div></div>
+        <div class="menu-item"><div><div class="item-name">12 Spinaci</div><div class="item-fa">اسپیناجی</div><div class="item-desc">mit Spinat, Knoblauch</div></div><div class="price">8,00 €</div></div>
+        <div class="menu-item"><div><div class="item-name">13 Broccoli</div><div class="item-fa">بروکلی</div><div class="item-desc">mit Broccoli, Knoblauch</div></div><div class="price">8,50 €</div></div>
+        <div class="menu-item"><div><div class="item-name">14 Inferno</div><div class="item-fa">اینفرنو</div><div class="item-desc">mit Thunfisch, scharfer Peperoni</div></div><div class="price">8,00 €</div></div>
+        <div class="menu-item"><div><div class="item-name">15 Italia</div><div class="item-fa">ایتالیا</div><div class="item-desc">mit Spinat, Zwiebeln, Knoblauch</div></div><div class="price">8,00 €</div></div>
+        <div class="menu-item"><div><div class="item-name">16 Calzone mit Spinat</div><div class="item-fa">کالزونه با اسفناج</div><div class="item-desc">Truthahn-Schinken, Champignons, Thunfisch, Paprika</div></div><div class="price">8,00 €</div></div>
+        <div class="menu-item"><div><div class="item-name">17 Calzone Vegetarisch</div><div class="item-fa">کالزونه سبزیجات</div><div class="item-desc">mit Spinat, Zwiebeln, Paprika, Champignons</div></div><div class="price">7,50 €</div></div>
+        <div class="menu-item"><div><div class="item-name">18 Calzone Hollandaise</div><div class="item-fa">کالزونه هلندیز</div><div class="item-desc">mit Hähnchen, Broccoli</div></div><div class="price">9,00 €</div></div>
+        <div class="menu-item"><div><div class="item-name">19 Paprika</div><div class="item-fa">پاپریکا</div><div class="item-desc">mit Paprika</div></div><div class="price">7,50 €</div></div>
+        <div class="menu-item"><div><div class="item-name">20 Rustical</div><div class="item-fa">روستیکال</div><div class="item-desc">mit Paprika, Truthahn-Schinken, Thunfisch, Zwiebeln</div></div><div class="price">8,50 €</div></div>
+        <div class="menu-item"><div><div class="item-name">21 Don Vanco</div><div class="item-fa">دان وانکو</div><div class="item-desc">mit Thunfisch, Spinat, Champignons</div></div><div class="price">8,60 €</div></div>
+        <div class="menu-item"><div><div class="item-name">22 Hot & Fresh Spezial Pizza</div><div class="item-fa">پیتزای مخصوص هات اند فرش</div><div class="item-desc">Spezialpizza des Hauses</div></div><div class="price">24,00 €</div></div>
       </div>
     </section>
 
-    <section id="burger" class="section">
+    <section id="burger-pasta" class="section">
       <div class="section-title">
-        <h2>🍔 Burger</h2>
-        <div class="section-sub">Frisch zubereitet</div>
+        <h2>🍔 Burger & 🍝 Pasta</h2>
+        <div class="section-sub">Burger und Pasta zusammen</div>
       </div>
-      <div class="menu-grid">
-        <div class="menu-item"><div><div class="item-name">Hamburger</div><div class="item-desc">Rindfleisch, Salat und Sauce</div></div><div class="price">4,50 €</div></div>
-        <div class="menu-item"><div><div class="item-name">Cheeseburger</div><div class="item-desc">Rindfleisch, Käse, Salat und Sauce</div></div><div class="price">4,50 €</div></div>
-        <div class="menu-item"><div><div class="item-name">Double Burger</div><div class="item-desc">Doppeltes Fleisch, extra kräftig</div></div><div class="price">7,99 €</div></div>
-        <div class="menu-item"><div><div class="item-name">Afghan Burger</div><div class="item-desc">Hausgemachte Spezialität</div></div><div class="price">4,50 €</div></div>
-      </div>
-
-      <div class="extras-list">
-        <div class="extra-box"><strong>Extra Pommes</strong>2,50 €</div>
-        <div class="extra-box"><strong>Extra Käse</strong>1,00 €</div>
-        <div class="extra-box"><strong>Jalapeños</strong>0,80 €</div>
-      </div>
-    </section>
-
-    <section id="snacks" class="section">
-      <div class="section-title">
-        <h2>🍟 Snacks</h2>
-        <div class="section-sub">Ideal für zwischendurch</div>
-      </div>
-      <div class="menu-grid">
-        <div class="menu-item"><div><div class="item-name">Pommes klein</div><div class="item-desc">Knusprige Portion</div></div><div class="price">2,50 €</div></div>
-        <div class="menu-item"><div><div class="item-name">Pommes groß</div><div class="item-desc">Große Portion</div></div><div class="price">3,99 €</div></div>
-        <div class="menu-item"><div><div class="item-name">Chicken Nuggets (6 Stück)</div><div class="item-desc">Mit Dip nach Wahl</div></div><div class="price">3,50 €</div></div>
-        <div class="menu-item"><div><div class="item-name">Chicken Wings (6 Stück)</div><div class="item-desc">Würzig und knusprig</div></div><div class="price">4,99 €</div></div>
+      <div class="two-col">
+        <div>
+          <div class="menu-grid">
+            <div class="menu-item"><div><div class="item-name">Hamburger</div><div class="item-fa">همبرگر</div></div><div class="price">4,50 €</div></div>
+            <div class="menu-item"><div><div class="item-name">Cheeseburger</div><div class="item-fa">چیزبرگر</div></div><div class="price">4,50 €</div></div>
+            <div class="menu-item"><div><div class="item-name">Double Burger</div><div class="item-fa">دبل برگر</div></div><div class="price">7,99 €</div></div>
+            <div class="menu-item"><div><div class="item-name">Double Cheeseburger</div><div class="item-fa">دبل چیزبرگر</div></div><div class="price">7,99 €</div></div>
+            <div class="menu-item"><div><div class="item-name">Afghan Burger</div><div class="item-fa">افغان برگر</div></div><div class="price">4,50 €</div></div>
+          </div>
+        </div>
+        <div>
+          <div class="menu-grid">
+            <div class="menu-item"><div><div class="item-name">Penne</div><div class="item-fa">پنه</div></div><div class="price">9,50 €</div></div>
+            <div class="menu-item"><div><div class="item-name">Spaghetti</div><div class="item-fa">اسپاگتی</div></div><div class="price">9,50 €</div></div>
+            <div class="menu-item"><div><div class="item-name">Pasta Napoli</div><div class="item-fa">پاستا ناپولی</div></div><div class="price">8,50 €</div></div>
+            <div class="menu-item"><div><div class="item-name">Pasta Bolognese</div><div class="item-fa">پاستا بولونز</div></div><div class="price">9,50 €</div></div>
+          </div>
+        </div>
       </div>
     </section>
 
     <section id="afghanisch" class="section">
       <div class="section-title">
         <h2>🍛 Afghanische Gerichte</h2>
-        <div class="section-sub">Traditionelle Spezialitäten</div>
+        <div class="section-sub">افغانی غذاها</div>
       </div>
       <div class="menu-grid">
-        <div class="menu-item"><div><div class="item-name">Qabuli Palau</div><div class="item-desc">Afghanischer Reis mit Beilage</div></div><div class="price">10,00 €</div></div>
-        <div class="menu-item"><div><div class="item-name">Mantu (5 Stück)</div><div class="item-desc">Gedämpfte Teigtaschen</div></div><div class="price">7,50 €</div></div>
-        <div class="menu-item"><div><div class="item-name">Sabzi</div><div class="item-desc">Traditionelles Gemüsegericht</div></div><div class="price">6,50 €</div></div>
-        <div class="menu-item"><div><div class="item-name">Bolani</div><div class="item-desc">Gefülltes Fladenbrot</div></div><div class="price">2,50 €</div></div>
+        <div class="menu-item"><div><div class="item-name">Qabili Palau</div><div class="item-fa">قابلی پلو</div></div><div class="price">10,00 €</div></div>
+        <div class="menu-item"><div><div class="item-name">Mantu (5 Stück)</div><div class="item-fa">منتو (۵ عدد)</div></div><div class="price">7,50 €</div></div>
+        <div class="menu-item"><div><div class="item-name">Mix-Teller</div><div class="item-fa">میکس پلیت</div><div class="item-desc">gemischter Teller</div></div><div class="price">6,50 €</div></div>
+        <div class="menu-item"><div><div class="item-name">Sabzi</div><div class="item-fa">سبزی</div><div class="item-desc">mit frischem Spinat, Klee und Reis</div></div><div class="price">4,99 €</div></div>
+        <div class="menu-item"><div><div class="item-name">Sambosa</div><div class="item-fa">سمبوسه</div><div class="item-desc">gefüllt mit Rindfleisch und Gemüse</div></div><div class="price">1,80 €</div></div>
+        <div class="menu-item"><div><div class="item-name">Pakora (afghanisch)</div><div class="item-fa">پاکوره افغانی</div></div><div class="price">2,50 €</div></div>
+        <div class="menu-item"><div><div class="item-name">Bolani</div><div class="item-fa">بولانی</div><div class="item-desc">gefüllt mit Kartoffeln und frischem Gemüse</div></div><div class="price">2,50 €</div></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-title">
+        <h2>📅 Zwei mal am Woche</h2>
+        <div class="section-sub">دو بار در هفته</div>
+      </div>
+      <div class="menu-grid">
+        <div class="menu-item"><div><div class="item-name">Pacha + Nan + Salat</div><div class="item-fa">پاچه + نان + سالاد</div></div><div class="price">13,49 €</div></div>
+        <div class="menu-item"><div><div class="item-name">Mantu (5 Stück)</div><div class="item-fa">منتو (۵ عدد)</div></div><div class="price">4,00 €</div></div>
+        <div class="menu-item"><div><div class="item-name">Chapli Kabab + Nan (3 Stück)</div><div class="item-fa">چپلی کباب + نان (۳ عدد)</div></div><div class="price">12,00 €</div></div>
+        <div class="menu-item"><div><div class="item-name">Afghani Quifi</div><div class="item-fa">کوفته افغانی</div></div><div class="price">7,49 €</div></div>
+        <div class="menu-item"><div><div class="item-name">Afghani Sheryakh</div><div class="item-fa">شیریخ افغانی</div></div><div class="price">7,49 €</div></div>
+      </div>
+    </section>
+
+    <section id="snacks" class="section">
+      <div class="section-title">
+        <h2>🍟 Snacks</h2>
+        <div class="section-sub">اسنک</div>
+      </div>
+      <div class="menu-grid">
+        <div class="menu-item"><div><div class="item-name">Pommes klein</div><div class="item-fa">سیب زمینی کوچک</div></div><div class="price">2,50 €</div></div>
+        <div class="menu-item"><div><div class="item-name">Pommes groß</div><div class="item-fa">سیب زمینی بزرگ</div></div><div class="price">3,99 €</div></div>
+        <div class="menu-item"><div><div class="item-name">Chicken Nuggets (6 Stück)</div><div class="item-fa">ناگت مرغ (۶ عدد)</div></div><div class="price">3,50 €</div></div>
+        <div class="menu-item"><div><div class="item-name">Chicken Wings (6 Stück)</div><div class="item-fa">بال مرغ (۶ عدد)</div></div><div class="price">4,99 €</div></div>
+        <div class="menu-item"><div><div class="item-name">Chapli Kabab + Nan (3 Stück)</div><div class="item-fa">چپلی کباب + نان (۳ عدد)</div></div><div class="price">12,00 €</div></div>
+        <div class="menu-item"><div><div class="item-name">Afghani Quifi</div><div class="item-fa">کوفی افغانی</div></div><div class="price">1,99 €</div></div>
+        <div class="menu-item"><div><div class="item-name">Afghani Sheryakh</div><div class="item-fa">شیریخ افغانی</div></div><div class="price">7,49 €</div></div>
       </div>
     </section>
 
     <section id="getraenke" class="section">
       <div class="section-title">
-        <h2>🥤 Getränke</h2>
-        <div class="section-sub">Kalt und heiß</div>
+        <h2>🥤 Getränke & ☕ Tee</h2>
+        <div class="section-sub">نوشیدنی و چای</div>
       </div>
-      <div class="menu-grid">
-        <div class="menu-item"><div><div class="item-name">Cola</div><div class="item-desc">0,33 l</div></div><div class="price">2,50 €</div></div>
-        <div class="menu-item"><div><div class="item-name">Fanta</div><div class="item-desc">0,33 l</div></div><div class="price">2,50 €</div></div>
-        <div class="menu-item"><div><div class="item-name">Wasser</div><div class="item-desc">0,5 l</div></div><div class="price">1,50 €</div></div>
-        <div class="menu-item"><div><div class="item-name">Tee</div><div class="item-desc">Heiß serviert</div></div><div class="price">1,50 €</div></div>
+      <div class="two-col">
+        <div>
+          <div class="menu-grid">
+            <div class="menu-item"><div><div class="item-name">Coco Cola (0,33 l)</div><div class="item-fa">کوکاکولا</div></div><div class="price">2,50 €</div></div>
+            <div class="menu-item"><div><div class="item-name">Fanta (0,33 l)</div><div class="item-fa">فانتا</div></div><div class="price">2,50 €</div></div>
+            <div class="menu-item"><div><div class="item-name">Sprite (0,33 l)</div><div class="item-fa">اسپرایت</div></div><div class="price">2,50 €</div></div>
+            <div class="menu-item"><div><div class="item-name">Mezzo Mix (0,33 l)</div><div class="item-fa">متزو میکس</div></div><div class="price">2,00 €</div></div>
+            <div class="menu-item"><div><div class="item-name">Capri Sun</div><div class="item-fa">کاپری سان</div></div><div class="price">1,00 €</div></div>
+            <div class="menu-item"><div><div class="item-name">Wasser (0,5 l)</div><div class="item-fa">آب</div></div><div class="price">1,50 €</div></div>
+            <div class="menu-item"><div><div class="item-name">Eistee (0,5 l)</div><div class="item-fa">آیس تی</div></div><div class="price">2,00 €</div></div>
+            <div class="menu-item"><div><div class="item-name">Red Bull</div><div class="item-fa">ردبول</div></div><div class="price">3,00 €</div></div>
+            <div class="menu-item"><div><div class="item-name">Ayran</div><div class="item-fa">آیران</div></div><div class="price">1,50 €</div></div>
+          </div>
+        </div>
+        <div>
+          <div class="menu-grid">
+            <div class="menu-item"><div><div class="item-name">Schwarzer Tee</div><div class="item-fa">چای سیاه</div></div><div class="price">1,00 €</div></div>
+            <div class="menu-item"><div><div class="item-name">Grüner Tee</div><div class="item-fa">چای سبز</div></div><div class="price">1,00 €</div></div>
+            <div class="menu-item"><div><div class="item-name">Afghanischer Tee</div><div class="item-fa">چای افغانی</div></div><div class="price">2,99 €</div></div>
+            <div class="menu-item"><div><div class="item-name">Sherchai</div><div class="item-fa">شیر چای</div></div><div class="price">7,50 €</div></div>
+            <div class="menu-item"><div><div class="item-name">Sherchai & Parata + Honig</div><div class="item-fa">شیر چای و پراته با عسل</div></div><div class="price">7,50 €</div></div>
+            <div class="menu-item"><div><div class="item-name">Hot & Fresh Spezial Pizza</div><div class="item-fa">پیتزای مخصوص هات اند فرش</div></div><div class="price">24,00 €</div></div>
+          </div>
+        </div>
       </div>
     </section>
 
-    <section id="social" class="qr-card">
+    <section id="social" class="social-card">
       <h2>Folgt uns</h2>
-      <p>Bleiben Sie auf dem Laufenden und folgen Sie Hot & Fresh Cuisine auf Social Media.</p>
-      <div class="extras-list" style="margin-top:18px;">
-        <div class="extra-box"><strong>Instagram</strong>@hot.fresh.duisburg7</div>
-        <div class="extra-box"><strong>TikTok</strong>@tiktok.hotfresh7</div>
+      <div class="social-grid">
+        <div class="social-box"><strong>Instagram</strong><br>@hot.fresh.duisburg7</div>
+        <div class="social-box"><strong>TikTok</strong><br>@tiktok.hotfresh7</div>
       </div>
     </section>
   </main>
