@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hot & Fresh Cuisine – Digitale Speisekarte</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: #111;
+      color: #fff;
+      line-height: 1.6;
+    }
+
+    header {
+      background: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)),
+                  url('https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=1200&q=80') center/cover;
+      text-align: center;
+      padding: 50px 20px;
+      border-bottom: 3px solid #c62828;
+    }
+
+    .logo {
+      width: 130px;
+      height: 130px;
+      object-fit: contain;
+      border-radius: 50%;
+      background: #fff;
+      padding: 8px;
+      margin-bottom: 15px;
+    }
+
+    header h1 {
+      color: #e53935;
+      font-size: 2.2rem;
+      margin-bottom: 10px;
+    }
+
+    header p {
+      color: #f5f5f5;
+      font-size: 1rem;
+    }
+
+    .contact {
+      margin-top: 18px;
+      font-size: 0.95rem;
+      color: #ddd;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 25px 15px 40px;
+    }
+
+    .section {
+      margin-bottom: 35px;
+      background: #1a1a1a;
+      border-radius: 14px;
+      padding: 20px;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.25);
+    }
+
+    .section h2 {
+      color: #ff5252;
+      border-bottom: 2px solid #c62828;
+      padding-bottom: 8px;
+      margin-bottom: 18px;
+      font-size: 1.5rem;
+    }
+
+    .menu-item {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 10px 0;
+      border-bottom: 1px solid #333;
+    }
+
+    .menu-item:last-child {
+      border-bottom: none;
+    }
+
+    .item-name {
+      font-weight: bold;
+      color: #fff;
+    }
+
+    .item-desc {
+      font-size: 0.92rem;
+      color: #bbb;
+      margin-top: 3px;
+    }
+
+    .price {
+      color: #ffd54f;
+      font-weight: bold;
+      white-space: nowrap;
+    }
+
+    .qr-box {
+      text-align: center;
+      background: #1a1a1a;
+      border-radius: 14px;
+      padding: 30px 20px;
+      margin-top: 30px;
+    }
+
+    .qr-box h2 {
+      color: #ff5252;
+      margin-bottom: 14px;
+    }
+
+    .qr-box p {
+      color: #ddd;
+      margin-bottom: 15px;
+    }
+
+    .qr-box img {
+      width: 180px;
+      max-width: 100%;
+      background: #fff;
+      padding: 10px;
+      border-radius: 10px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      color: #aaa;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 700px) {
+      header h1 {
+        font-size: 1.8rem;
+      }
+
+      .menu-item {
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      .price {
+        align-self: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <!-- ERSETZE logo.png mit deinem echten Logo-Dateinamen -->
+    <img src="logo.png" alt="Hot & Fresh Cuisine Logo" class="logo">
+    <h1>Hot & Fresh Cuisine</h1>
+    <p>Digitale Speisekarte</p>
+    <div class="contact">
+      Hohe Straße 7, 47051 Duisburg<br>
+      Tel: 0203-41717510 / 0203-41717909
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="section">
+      <h2>Pizza</h2>
+
+      <div class="menu-item">
+        <div>
+          <div class="item-name">Margherita</div>
+          <div class="item-desc">Tomatensauce und Käse</div>
+        </div>
+        <div class="price">7,50 €</div>
+      </div>
+
+      <div class="menu-item">
+        <div>
+          <div class="item-name">Salami</div>
+          <div class="item-desc">Tomatensauce, Käse und Salami</div>
+        </div>
+        <div class="price">8,50 €</div>
+      </div>
+
+      <div class="menu-item">
+        <div>
+          <div class="item-name">Hawaii</div>
+          <div class="item-desc">Tomatensauce, Käse, Schinken und Ananas</div>
+        </div>
+        <div class="price">9,00 €</div>
+      </div>
+
+      <div class="menu-item">
+        <div>
+          <div class="item-name">Tonno</div>
+          <div class="item-desc">Tomatensauce, Käse und Thunfisch</div>
+        </div>
+        <div class="price">8,50 €</div>
+      </div>
+
+      <div class="menu-item">
+        <div>
+          <div class="item-name">Hot & Fresh Spezial</div>
+          <div class="item-desc">Spezialpizza des Hauses</div>
+        </div>
+        <div class="price">10,00 €</div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Burger</h2>
+
+      <div class="menu-item">
+        <div>
+          <div class="item-name">Hamburger</div>
+          <div class="item-desc">Rindfleisch, Salat und Sauce</div>
+        </div>
+        <div class="price">4,50 €</div>
+      </div>
+
+      <div class="menu-item">
+        <div>
+          <div class="item-name">Cheeseburger</div>
+          <div class="item-desc">Rindfleisch, Käse, Salat und Sauce</div>
+        </div>
+        <div class="price">4,50 €</div>
+      </div>
+
+      <div class="menu-item">
+        <div>
+          <div class="item-name">Double Burger</div>
+          <div class="item-desc">Doppeltes Fleisch, Käse und Sauce</div>
+        </div>
+        <div class="price">7,99 €</div>
+      </div>
+
+      <div class="menu-item">
+        <div>
+          <div class="item-name">Afghan Burger</div>
+          <div class="item-desc">Hausgemachte Spezialität</div>
+        </div>
+        <div class="price">4,50 €</div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Snacks</h2>
+
+      <div class="menu-item">
+        <div>
+          <div class="item-name">Pommes klein</div>
+          <div class="item-desc">Knusprige Portion</div>
+        </div>
+        <div class="price">2,50 €</div>
+      </div>
+
+      <div class="menu-item">
+        <div>
+          <div class="item-name">Pommes groß</div>
+          <div class="item-desc">Große Portion</div>
+        </div>
+        <div class="price">3,99 €</div>
+      </div>
+
+      <div class="menu-item">
+        <div>
+          <div class="item-name">Chicken Nuggets (6 Stück)</div>
+          <div class="item-desc">Mit Dip nach Wahl</div>
+        </div>
+        <div class="price">3,50 €</div>
+      </div>
+
+      <div class="menu-item">
+        <div>
+          <div class="item-name">Chicken Wings (6 Stück)</div>
+          <div class="item-desc">Würzige Hähnchenflügel</div>
+        </div>
+        <div class="price">4,99 €</div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Afghanische Gerichte</h2>
+
+      <div class="menu-item">
+        <div>
+          <div class="item-name">Qabuli Palau</div>
+          <div class="item-desc">Afghanischer Reis mit Beilage</div>
+        </div>
+        <div class="price">10,00 €</div>
+      </div>
+
+      <div class="menu-item">
+        <div>
+          <div class="item-name">Mantu (5 Stück)</div>
+          <div class="item-desc">Gedämpfte Teigtaschen</div>
+        </div>
+        <div class="price">7,50 €</div>
+      </div>
+
+      <div class="menu-item">
+        <div>
+          <div class="item-name">Sabzi</div>
+          <div class="item-desc">Traditionelles Gemüsegericht</div>
+        </div>
+        <div class="price">6,50 €</div>
+      </div>
+
+      <div class="menu-item">
+        <div>
+          <div class="item-name">Bolani</div>
+          <div class="item-desc">Gefülltes Fladenbrot</div>
+        </div>
+        <div class="price">2,50 €</div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Getränke</h2>
+
+      <div class="menu-item">
+        <div>
+          <div class="item-name">Cola</div>
+          <div class="item-desc">0,33 l</div>
+        </div>
+        <div class="price">2,50 €</div>
+      </div>
+
+      <div class="menu-item">
+        <div>
+          <div class="item-name">Fanta</div>
+          <div class="item-desc">0,33 l</div>
+        </div>
+        <div class="price">2,50 €</div>
+      </div>
+
+      <div class="menu-item">
+        <div>
+          <div class="item-name">Wasser</div>
+          <div class="item-desc">Still oder Sprudel</div>
+        </div>
+        <div class="price">2,00 €</div>
+      </div>
+
+      <div class="menu-item">
+        <div>
+          <div class="item-name">Tee</div>
+          <div class="item-desc">Heiß serviert</div>
+        </div>
+        <div class="price">1,50 €</div>
+      </div>
+    </section>
+
+    <section class="qr-box">
+      <h2>QR-Code zur Speisekarte</h2>
+      <p>Scannen Sie den QR-Code, um die digitale Speisekarte direkt auf dem Handy zu öffnen.</p>
+
+      <!-- ERSETZE qrcode.png mit deinem QR-Code-Bild -->
+      <img src="qrcode.png" alt="QR-Code zur digitalen Speisekarte">
+    </section>
+  </main>
+
+  <footer>
+    © 2026 Hot & Fresh Cuisine – Alle Rechte vorbehalten
+  </footer>
+</body>
+</html>
