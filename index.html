@@ -5,366 +5,484 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Hot & Fresh Cuisine – Digitale Speisekarte</title>
   <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: Arial, sans-serif;
-    }
-
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
     body {
-      background: #111;
-      color: #fff;
-      line-height: 1.6;
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #0f0f10;
+      color: #ffffff;
+      line-height: 1.5;
     }
 
-    header {
-      background: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)),
-                  url('https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=1200&q=80') center/cover;
+    :root {
+      --red: #d62828;
+      --red-light: #ef4444;
+      --gold: #f6c453;
+      --card: #171718;
+      --card-2: #1f1f21;
+      --border: #2c2c2f;
+      --text-soft: #cfcfd4;
+      --text-muted: #9c9ca3;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      background:
+        linear-gradient(rgba(0,0,0,0.68), rgba(0,0,0,0.82)),
+        url('https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=1400&q=80') center/cover;
+      border-bottom: 3px solid var(--red);
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at top right, rgba(214,40,40,0.25), transparent 35%);
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 28px 18px 36px;
+      position: relative;
+      z-index: 1;
       text-align: center;
-      padding: 50px 20px;
-      border-bottom: 3px solid #c62828;
+    }
+
+    .logo-wrap {
+      width: 126px;
+      height: 126px;
+      margin: 0 auto 14px;
+      border-radius: 24px;
+      background: rgba(255,255,255,0.95);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.3);
     }
 
     .logo {
-      width: 130px;
-      height: 130px;
+      width: 100%;
+      height: 100%;
       object-fit: contain;
-      border-radius: 50%;
-      background: #fff;
-      padding: 8px;
-      margin-bottom: 15px;
+      border-radius: 18px;
     }
 
-    header h1 {
-      color: #e53935;
-      font-size: 2.2rem;
-      margin-bottom: 10px;
+    .badge {
+      display: inline-block;
+      background: rgba(214,40,40,0.16);
+      color: #ffd7d7;
+      border: 1px solid rgba(214,40,40,0.35);
+      padding: 7px 12px;
+      border-radius: 999px;
+      font-size: 0.88rem;
+      margin-bottom: 12px;
     }
 
-    header p {
-      color: #f5f5f5;
-      font-size: 1rem;
+    h1 {
+      margin: 0;
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      color: #fff;
+      letter-spacing: 0.4px;
     }
 
-    .contact {
+    .subtitle {
+      margin: 10px auto 0;
+      color: var(--gold);
+      font-weight: bold;
+      font-size: 1.04rem;
+    }
+
+    .subfa {
+      margin-top: 6px;
+      color: #f2f2f2;
+      font-size: 0.96rem;
+    }
+
+    .contact-box {
+      margin: 20px auto 0;
+      max-width: 760px;
+      background: rgba(17,17,18,0.78);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 18px;
+      padding: 16px;
+      backdrop-filter: blur(3px);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+      text-align: left;
+      color: var(--text-soft);
+      font-size: 0.97rem;
+    }
+
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
       margin-top: 18px;
-      font-size: 0.95rem;
-      color: #ddd;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 150px;
+      padding: 12px 18px;
+      border-radius: 12px;
+      font-weight: bold;
+      transition: 0.2s ease;
+      border: 1px solid transparent;
+    }
+
+    .btn-primary {
+      background: var(--red);
+      color: #fff;
+      box-shadow: 0 8px 24px rgba(214,40,40,0.28);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: #fff;
+      border-color: rgba(255,255,255,0.18);
+    }
+
+    .btn:hover { transform: translateY(-1px); }
+
+    .top-nav {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(12,12,13,0.92);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .top-nav-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 10px 12px;
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+    }
+
+    .nav-pill {
+      white-space: nowrap;
+      padding: 9px 13px;
+      border-radius: 999px;
+      background: #1a1a1c;
+      color: #f1f1f1;
+      border: 1px solid #2a2a2d;
+      font-size: 0.94rem;
     }
 
     .container {
-      max-width: 1000px;
+      max-width: 1100px;
       margin: 0 auto;
-      padding: 25px 15px 40px;
+      padding: 22px 14px 34px;
+    }
+
+    .intro-card,
+    .section,
+    .qr-card {
+      background: linear-gradient(180deg, var(--card), var(--card-2));
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.18);
+    }
+
+    .intro-card {
+      padding: 18px;
+      margin-bottom: 18px;
+    }
+
+    .intro-card h2 {
+      margin: 0 0 8px;
+      color: var(--gold);
+      font-size: 1.35rem;
+    }
+
+    .intro-card p {
+      margin: 0;
+      color: var(--text-soft);
     }
 
     .section {
-      margin-bottom: 35px;
-      background: #1a1a1a;
-      border-radius: 14px;
-      padding: 20px;
-      box-shadow: 0 4px 14px rgba(0,0,0,0.25);
+      padding: 18px;
+      margin-bottom: 18px;
     }
 
-    .section h2 {
-      color: #ff5252;
-      border-bottom: 2px solid #c62828;
-      padding-bottom: 8px;
-      margin-bottom: 18px;
+    .section-title {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 14px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid rgba(214,40,40,0.35);
+    }
+
+    .section-title h2 {
+      margin: 0;
+      color: #fff;
       font-size: 1.5rem;
+    }
+
+    .section-sub {
+      color: var(--text-muted);
+      font-size: 0.92rem;
+    }
+
+    .menu-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
     }
 
     .menu-item {
       display: flex;
       justify-content: space-between;
-      gap: 20px;
-      padding: 10px 0;
-      border-bottom: 1px solid #333;
-    }
-
-    .menu-item:last-child {
-      border-bottom: none;
+      gap: 14px;
+      padding: 14px;
+      border-radius: 16px;
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(255,255,255,0.05);
     }
 
     .item-name {
       font-weight: bold;
-      color: #fff;
+      font-size: 1rem;
     }
 
     .item-desc {
       font-size: 0.92rem;
-      color: #bbb;
-      margin-top: 3px;
+      color: var(--text-soft);
+      margin-top: 5px;
     }
 
     .price {
-      color: #ffd54f;
+      color: var(--gold);
       font-weight: bold;
       white-space: nowrap;
+      font-size: 1rem;
     }
 
-    .qr-box {
-      text-align: center;
-      background: #1a1a1a;
+    .extras-list {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    .extra-box {
+      padding: 12px;
       border-radius: 14px;
-      padding: 30px 20px;
-      margin-top: 30px;
+      background: rgba(214,40,40,0.08);
+      border: 1px solid rgba(214,40,40,0.18);
+      color: #f8f8f8;
     }
 
-    .qr-box h2 {
-      color: #ff5252;
-      margin-bottom: 14px;
+    .extra-box strong {
+      display: block;
+      margin-bottom: 6px;
+      color: #fff;
     }
 
-    .qr-box p {
-      color: #ddd;
-      margin-bottom: 15px;
+    .qr-card {
+      padding: 22px;
+      text-align: center;
+      margin-top: 8px;
     }
 
-    .qr-box img {
-      width: 180px;
+    .qr-card h2 {
+      margin-top: 0;
+      color: var(--gold);
+    }
+
+    .qr-card p {
+      color: var(--text-soft);
+      margin-bottom: 16px;
+    }
+
+    .qr-card img {
+      width: 190px;
       max-width: 100%;
-      background: #fff;
-      padding: 10px;
-      border-radius: 10px;
+      background: white;
+      padding: 12px;
+      border-radius: 16px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+    }
+
+    .qr-help {
+      margin-top: 14px;
+      color: var(--text-muted);
+      font-size: 0.92rem;
     }
 
     footer {
       text-align: center;
-      padding: 20px;
-      color: #aaa;
-      font-size: 0.9rem;
+      color: var(--text-muted);
+      padding: 30px 16px 40px;
+      font-size: 0.92rem;
     }
 
-    @media (max-width: 700px) {
-      header h1 {
-        font-size: 1.8rem;
+    @media (max-width: 860px) {
+      .menu-grid,
+      .extras-list,
+      .contact-grid {
+        grid-template-columns: 1fr;
       }
+    }
 
+    @media (max-width: 560px) {
+      .hero-inner { padding-top: 20px; }
       .menu-item {
         flex-direction: column;
         gap: 8px;
       }
-
-      .price {
-        align-self: flex-start;
-      }
+      .price { align-self: flex-start; }
+      .btn { width: 100%; }
+      .cta-row { flex-direction: column; }
     }
   </style>
 </head>
 <body>
-  <header>
-    <!-- ERSETZE logo.png mit deinem echten Logo-Dateinamen -->
-    <img src="logo.png" alt="Hot & Fresh Cuisine Logo" class="logo">
-    <h1>Hot & Fresh Cuisine</h1>
-    <p>Digitale Speisekarte</p>
-    <div class="contact">
-      Hohe Straße 7, 47051 Duisburg<br>
-      Tel: 0203-41717510 / 0203-41717909
+  <header class="hero">
+    <div class="hero-inner">
+      <div class="badge">Digitale Speisekarte</div>
+      <div class="logo-wrap">
+        <img src="logo.png" alt="Hot & Fresh Cuisine Logo" class="logo">
+      </div>
+      <h1>Hot & Fresh Cuisine</h1>
+      <div class="subtitle">Frisch • Heiß • Lecker</div>
+      <div class="subfa">تازه • داغ • خوشمزه</div>
+
+      <div class="contact-box">
+        <div class="contact-grid">
+          <div><strong>Adresse:</strong><br>Hohe Straße 7, 47051 Duisburg</div>
+          <div><strong>Öffnungszeiten:</strong><br>Mo – So: 12:00 – 23:00 Uhr</div>
+          <div><strong>Telefon:</strong><br>0203-41717510 / 0203-41717909</div>
+          <div><strong>Instagram:</strong><br>@hot.fresh.duisburg7</div>
+        </div>
+      </div>
+
+      <div class="cta-row">
+        <a class="btn btn-primary" href="tel:020341717510">Jetzt anrufen</a>
+        <a class="btn btn-secondary" href="#qr">QR-Code ansehen</a>
+      </div>
     </div>
   </header>
 
+  <nav class="top-nav">
+    <div class="top-nav-inner">
+      <a href="#pizza" class="nav-pill">Pizza</a>
+      <a href="#burger" class="nav-pill">Burger</a>
+      <a href="#snacks" class="nav-pill">Snacks</a>
+      <a href="#afghanisch" class="nav-pill">Afghanische Gerichte</a>
+      <a href="#getraenke" class="nav-pill">Getränke</a>
+      <a href="#qr" class="nav-pill">QR</a>
+    </div>
+  </nav>
+
   <main class="container">
-    <section class="section">
-      <h2>Pizza</h2>
+    <section class="intro-card">
+      <h2>Willkommen bei Hot & Fresh Cuisine</h2>
+      <p>Hier sehen Ihre Kunden die digitale Speisekarte direkt auf dem Handy. Das Design ist jetzt moderner, klarer und besser für ein Restaurant. Sie können später ganz einfach Preise und Gerichte ändern.</p>
+    </section>
 
-      <div class="menu-item">
-        <div>
-          <div class="item-name">Margherita</div>
-          <div class="item-desc">Tomatensauce und Käse</div>
-        </div>
-        <div class="price">7,50 €</div>
+    <section id="pizza" class="section">
+      <div class="section-title">
+        <h2>🍕 Pizza</h2>
+        <div class="section-sub">Alle Pizzen mit Tomatensauce und Käse</div>
       </div>
-
-      <div class="menu-item">
-        <div>
-          <div class="item-name">Salami</div>
-          <div class="item-desc">Tomatensauce, Käse und Salami</div>
-        </div>
-        <div class="price">8,50 €</div>
-      </div>
-
-      <div class="menu-item">
-        <div>
-          <div class="item-name">Hawaii</div>
-          <div class="item-desc">Tomatensauce, Käse, Schinken und Ananas</div>
-        </div>
-        <div class="price">9,00 €</div>
-      </div>
-
-      <div class="menu-item">
-        <div>
-          <div class="item-name">Tonno</div>
-          <div class="item-desc">Tomatensauce, Käse und Thunfisch</div>
-        </div>
-        <div class="price">8,50 €</div>
-      </div>
-
-      <div class="menu-item">
-        <div>
-          <div class="item-name">Hot & Fresh Spezial</div>
-          <div class="item-desc">Spezialpizza des Hauses</div>
-        </div>
-        <div class="price">10,00 €</div>
+      <div class="menu-grid">
+        <div class="menu-item"><div><div class="item-name">Margherita</div><div class="item-desc">Tomatensauce und Käse</div></div><div class="price">7,50 €</div></div>
+        <div class="menu-item"><div><div class="item-name">Salami</div><div class="item-desc">Tomatensauce, Käse und Salami</div></div><div class="price">8,50 €</div></div>
+        <div class="menu-item"><div><div class="item-name">Tonno</div><div class="item-desc">Tomatensauce, Käse und Thunfisch</div></div><div class="price">8,50 €</div></div>
+        <div class="menu-item"><div><div class="item-name">Hawaii</div><div class="item-desc">Tomatensauce, Käse, Schinken und Ananas</div></div><div class="price">9,00 €</div></div>
+        <div class="menu-item"><div><div class="item-name">Vegetaria</div><div class="item-desc">Mit Broccoli, Spinat, Paprika, Pilzen und Zwiebeln</div></div><div class="price">8,50 €</div></div>
+        <div class="menu-item"><div><div class="item-name">Hot & Fresh Spezial</div><div class="item-desc">Spezialpizza des Hauses</div></div><div class="price">10,00 €</div></div>
       </div>
     </section>
 
-    <section class="section">
-      <h2>Burger</h2>
-
-      <div class="menu-item">
-        <div>
-          <div class="item-name">Hamburger</div>
-          <div class="item-desc">Rindfleisch, Salat und Sauce</div>
-        </div>
-        <div class="price">4,50 €</div>
+    <section id="burger" class="section">
+      <div class="section-title">
+        <h2>🍔 Burger</h2>
+        <div class="section-sub">Frisch zubereitet</div>
+      </div>
+      <div class="menu-grid">
+        <div class="menu-item"><div><div class="item-name">Hamburger</div><div class="item-desc">Rindfleisch, Salat und Sauce</div></div><div class="price">4,50 €</div></div>
+        <div class="menu-item"><div><div class="item-name">Cheeseburger</div><div class="item-desc">Rindfleisch, Käse, Salat und Sauce</div></div><div class="price">4,50 €</div></div>
+        <div class="menu-item"><div><div class="item-name">Double Burger</div><div class="item-desc">Doppeltes Fleisch, extra kräftig</div></div><div class="price">7,99 €</div></div>
+        <div class="menu-item"><div><div class="item-name">Afghan Burger</div><div class="item-desc">Hausgemachte Spezialität</div></div><div class="price">4,50 €</div></div>
       </div>
 
-      <div class="menu-item">
-        <div>
-          <div class="item-name">Cheeseburger</div>
-          <div class="item-desc">Rindfleisch, Käse, Salat und Sauce</div>
-        </div>
-        <div class="price">4,50 €</div>
-      </div>
-
-      <div class="menu-item">
-        <div>
-          <div class="item-name">Double Burger</div>
-          <div class="item-desc">Doppeltes Fleisch, Käse und Sauce</div>
-        </div>
-        <div class="price">7,99 €</div>
-      </div>
-
-      <div class="menu-item">
-        <div>
-          <div class="item-name">Afghan Burger</div>
-          <div class="item-desc">Hausgemachte Spezialität</div>
-        </div>
-        <div class="price">4,50 €</div>
+      <div class="extras-list">
+        <div class="extra-box"><strong>Extra Pommes</strong>2,50 €</div>
+        <div class="extra-box"><strong>Extra Käse</strong>1,00 €</div>
+        <div class="extra-box"><strong>Jalapeños</strong>0,80 €</div>
       </div>
     </section>
 
-    <section class="section">
-      <h2>Snacks</h2>
-
-      <div class="menu-item">
-        <div>
-          <div class="item-name">Pommes klein</div>
-          <div class="item-desc">Knusprige Portion</div>
-        </div>
-        <div class="price">2,50 €</div>
+    <section id="snacks" class="section">
+      <div class="section-title">
+        <h2>🍟 Snacks</h2>
+        <div class="section-sub">Ideal für zwischendurch</div>
       </div>
-
-      <div class="menu-item">
-        <div>
-          <div class="item-name">Pommes groß</div>
-          <div class="item-desc">Große Portion</div>
-        </div>
-        <div class="price">3,99 €</div>
-      </div>
-
-      <div class="menu-item">
-        <div>
-          <div class="item-name">Chicken Nuggets (6 Stück)</div>
-          <div class="item-desc">Mit Dip nach Wahl</div>
-        </div>
-        <div class="price">3,50 €</div>
-      </div>
-
-      <div class="menu-item">
-        <div>
-          <div class="item-name">Chicken Wings (6 Stück)</div>
-          <div class="item-desc">Würzige Hähnchenflügel</div>
-        </div>
-        <div class="price">4,99 €</div>
+      <div class="menu-grid">
+        <div class="menu-item"><div><div class="item-name">Pommes klein</div><div class="item-desc">Knusprige Portion</div></div><div class="price">2,50 €</div></div>
+        <div class="menu-item"><div><div class="item-name">Pommes groß</div><div class="item-desc">Große Portion</div></div><div class="price">3,99 €</div></div>
+        <div class="menu-item"><div><div class="item-name">Chicken Nuggets (6 Stück)</div><div class="item-desc">Mit Dip nach Wahl</div></div><div class="price">3,50 €</div></div>
+        <div class="menu-item"><div><div class="item-name">Chicken Wings (6 Stück)</div><div class="item-desc">Würzig und knusprig</div></div><div class="price">4,99 €</div></div>
       </div>
     </section>
 
-    <section class="section">
-      <h2>Afghanische Gerichte</h2>
-
-      <div class="menu-item">
-        <div>
-          <div class="item-name">Qabuli Palau</div>
-          <div class="item-desc">Afghanischer Reis mit Beilage</div>
-        </div>
-        <div class="price">10,00 €</div>
+    <section id="afghanisch" class="section">
+      <div class="section-title">
+        <h2>🍛 Afghanische Gerichte</h2>
+        <div class="section-sub">Traditionelle Spezialitäten</div>
       </div>
-
-      <div class="menu-item">
-        <div>
-          <div class="item-name">Mantu (5 Stück)</div>
-          <div class="item-desc">Gedämpfte Teigtaschen</div>
-        </div>
-        <div class="price">7,50 €</div>
-      </div>
-
-      <div class="menu-item">
-        <div>
-          <div class="item-name">Sabzi</div>
-          <div class="item-desc">Traditionelles Gemüsegericht</div>
-        </div>
-        <div class="price">6,50 €</div>
-      </div>
-
-      <div class="menu-item">
-        <div>
-          <div class="item-name">Bolani</div>
-          <div class="item-desc">Gefülltes Fladenbrot</div>
-        </div>
-        <div class="price">2,50 €</div>
+      <div class="menu-grid">
+        <div class="menu-item"><div><div class="item-name">Qabuli Palau</div><div class="item-desc">Afghanischer Reis mit Beilage</div></div><div class="price">10,00 €</div></div>
+        <div class="menu-item"><div><div class="item-name">Mantu (5 Stück)</div><div class="item-desc">Gedämpfte Teigtaschen</div></div><div class="price">7,50 €</div></div>
+        <div class="menu-item"><div><div class="item-name">Sabzi</div><div class="item-desc">Traditionelles Gemüsegericht</div></div><div class="price">6,50 €</div></div>
+        <div class="menu-item"><div><div class="item-name">Bolani</div><div class="item-desc">Gefülltes Fladenbrot</div></div><div class="price">2,50 €</div></div>
       </div>
     </section>
 
-    <section class="section">
-      <h2>Getränke</h2>
-
-      <div class="menu-item">
-        <div>
-          <div class="item-name">Cola</div>
-          <div class="item-desc">0,33 l</div>
-        </div>
-        <div class="price">2,50 €</div>
+    <section id="getraenke" class="section">
+      <div class="section-title">
+        <h2>🥤 Getränke</h2>
+        <div class="section-sub">Kalt und heiß</div>
       </div>
-
-      <div class="menu-item">
-        <div>
-          <div class="item-name">Fanta</div>
-          <div class="item-desc">0,33 l</div>
-        </div>
-        <div class="price">2,50 €</div>
-      </div>
-
-      <div class="menu-item">
-        <div>
-          <div class="item-name">Wasser</div>
-          <div class="item-desc">Still oder Sprudel</div>
-        </div>
-        <div class="price">2,00 €</div>
-      </div>
-
-      <div class="menu-item">
-        <div>
-          <div class="item-name">Tee</div>
-          <div class="item-desc">Heiß serviert</div>
-        </div>
-        <div class="price">1,50 €</div>
+      <div class="menu-grid">
+        <div class="menu-item"><div><div class="item-name">Cola</div><div class="item-desc">0,33 l</div></div><div class="price">2,50 €</div></div>
+        <div class="menu-item"><div><div class="item-name">Fanta</div><div class="item-desc">0,33 l</div></div><div class="price">2,50 €</div></div>
+        <div class="menu-item"><div><div class="item-name">Wasser</div><div class="item-desc">0,5 l</div></div><div class="price">1,50 €</div></div>
+        <div class="menu-item"><div><div class="item-name">Tee</div><div class="item-desc">Heiß serviert</div></div><div class="price">1,50 €</div></div>
       </div>
     </section>
 
-    <section class="qr-box">
-      <h2>QR-Code zur Speisekarte</h2>
+    <section id="qr" class="qr-card">
+      <h2>Speisekarte scannen</h2>
       <p>Scannen Sie den QR-Code, um die digitale Speisekarte direkt auf dem Handy zu öffnen.</p>
-
-      <!-- ERSETZE qrcode.png mit deinem QR-Code-Bild -->
       <img src="qrcode.png" alt="QR-Code zur digitalen Speisekarte">
+      <div class="qr-help">Scan me • Speisekarte ansehen • منو را اسکن کنید</div>
     </section>
   </main>
 
   <footer>
-    © 2026 Hot & Fresh Cuisine – Alle Rechte vorbehalten
+    © 2026 Hot & Fresh Cuisine – Digitale Speisekarte
   </footer>
 </body>
 </html>
