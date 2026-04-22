@@ -1,287 +1,217 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hot & Fresh Cuisine – Speisekarte</title>
-  <style>
-    body{
-      margin:0;
-      font-family:Arial, sans-serif;
-      background:#f4f1ec;
-      color:#1a1a1a;
-      line-height:1.5;
-    }
-    .hero{
-      background:#111;
-      color:white;
-      text-align:center;
-      padding:30px 20px;
-    }
-    .hero img{
-      width:180px;
-      max-width:90%;
-      border-radius:20px;
-      background:white;
-      padding:10px;
-    }
-    .hero h1{
-      margin:15px 0 8px;
-      font-size:42px;
-    }
-    .hero .slogan{
-      color:#f0b43c;
-      font-size:24px;
-      font-weight:bold;
-      margin-bottom:8px;
-    }
-    .hero .slogan-fa{
-      font-size:22px;
-    }
-    .info{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-      gap:15px;
-      padding:20px;
-      background:#fff;
-      border-bottom:2px solid #ddd;
-    }
-    .info-box{
-      background:#faf7f2;
-      border:1px solid #ddd;
-      border-radius:14px;
-      padding:15px;
-    }
-    .container{
-      max-width:1200px;
-      margin:0 auto;
-      padding:25px 15px 40px;
-    }
-    .section{
-      background:white;
-      border-radius:18px;
-      padding:20px;
-      margin-bottom:22px;
-      box-shadow:0 4px 14px rgba(0,0,0,0.08);
-    }
-    .section h2{
-      margin:0 0 8px;
-      font-size:32px;
-      color:#b22222;
-    }
-    .section .sub{
-      color:#666;
-      margin-bottom:16px;
-    }
-    .section img{
-      width:100%;
-      height:260px;
-      object-fit:cover;
-      border-radius:14px;
-      margin-bottom:16px;
-    }
-    .grid{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:14px;
-    }
-    .item{
-      border:1px solid #e3e3e3;
-      border-radius:14px;
-      padding:14px;
-      background:#fcfcfc;
-    }
-    .item-top{
-      display:flex;
-      justify-content:space-between;
-      gap:10px;
-      font-weight:bold;
-      font-size:21px;
-    }
-    .price{
-      color:#c47a00;
-      white-space:nowrap;
-    }
-    .fa{
-      margin-top:5px;
-      color:#444;
-      font-size:18px;
-    }
-    .desc{
-      margin-top:6px;
-      color:#666;
-      font-size:16px;
-    }
-    .social-links a{
-      display:inline-block;
-      margin-right:14px;
-      color:#b22222;
-      font-weight:bold;
-      text-decoration:none;
-    }
-    footer{
-      text-align:center;
-      background:#111;
-      color:white;
-      padding:18px;
-      margin-top:20px;
-    }
-    @media (max-width:800px){
-      .grid{
-        grid-template-columns:1fr;
-      }
-      .hero h1{
-        font-size:32px;
-      }
-      .section h2{
-        font-size:26px;
-      }
-      .item-top{
-        font-size:18px;
-      }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hot & Fresh Cuisine</title>
+
+<style>
+body{
+  margin:0;
+  font-family:Arial, sans-serif;
+  color:white;
+
+  background: linear-gradient(135deg,#0f0f0f,#1a0000,#001a00);
+}
+
+/* LOGO */
+.header{
+  text-align:center;
+  padding:30px 20px;
+}
+
+.logo{
+  width:220px;
+  background:#111;
+  padding:15px;
+  border-radius:20px;
+}
+
+/* TITEL */
+h1{
+  font-size:40px;
+  margin:15px 0;
+}
+
+.subtitle{
+  color:#ffcc00;
+}
+
+/* NAV BUTTONS */
+.nav{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:10px;
+  padding:20px;
+}
+
+.nav button{
+  background:#222;
+  border:none;
+  color:white;
+  padding:10px 15px;
+  border-radius:20px;
+  cursor:pointer;
+}
+
+.nav button:hover{
+  background:#ff3c3c;
+}
+
+/* SEKTION */
+.section{
+  background:rgba(255,255,255,0.05);
+  margin:20px;
+  padding:20px;
+  border-radius:20px;
+}
+
+/* GERICHT */
+.item{
+  display:flex;
+  align-items:center;
+  gap:15px;
+  margin-bottom:15px;
+}
+
+.item img{
+  width:80px;
+  height:80px;
+  border-radius:10px;
+  object-fit:cover;
+}
+
+.item-text{
+  flex:1;
+}
+
+.price{
+  color:#ffcc00;
+  font-weight:bold;
+}
+
+/* SOCIAL */
+.social{
+  text-align:center;
+  margin:30px;
+}
+
+.social a{
+  display:inline-block;
+  margin:10px;
+  padding:10px 20px;
+  background:#222;
+  border-radius:20px;
+  color:white;
+  text-decoration:none;
+}
+
+.social a:hover{
+  background:#ff3c3c;
+}
+</style>
 </head>
+
 <body>
 
-  <div class="hero">
-    <img src="logo.png" alt="Hot & Fresh Cuisine Logo" onerror="this.src='logo.jpeg'">
-    <h1>Hot & Fresh Cuisine</h1>
-    <div class="slogan">Frisch • Heiß • Lecker</div>
-    <div class="slogan-fa">تازه • داغ • خوشمزه</div>
+<div class="header">
+  <img src="logo.png" class="logo">
+  <h1>Hot & Fresh Cuisine</h1>
+  <div class="subtitle">Frisch • Heiß • Lecker</div>
+</div>
+
+<div class="nav">
+  <button onclick="scrollToSection('pizza')">🍕 Pizza</button>
+  <button onclick="scrollToSection('burger')">🍔 Burger</button>
+  <button onclick="scrollToSection('afghan')">🍛 Afghanisch</button>
+  <button onclick="scrollToSection('snacks')">🍟 Snacks</button>
+  <button onclick="scrollToSection('drinks')">🥤 Getränke</button>
+</div>
+
+<!-- PIZZA -->
+<div id="pizza" class="section">
+  <h2>🍕 Pizza</h2>
+
+  <div class="item">
+    <img src="https://images.unsplash.com/photo-1601924582975-7c1c9f3f6b36">
+    <div class="item-text">
+      Margherita<br>
+      <small>Käse & Tomate</small>
+    </div>
+    <div class="price">6,50 €</div>
   </div>
 
-  <div class="info">
-    <div class="info-box"><strong>Adresse</strong><br>Hohe Straße 7<br>47051 Duisburg</div>
-    <div class="info-box"><strong>Öffnungszeiten</strong><br>Mo – So: 12:00 – 23:00 Uhr</div>
-    <div class="info-box"><strong>Telefon</strong><br>0203-41717510<br>0203-41717909</div>
-    <div class="info-box">
-      <strong>Social Media</strong><br>
-      <div class="social-links">
-        <a href="https://www.instagram.com/hot.fresh.duisburg7" target="_blank">Instagram</a>
-        <a href="https://www.tiktok.com/@tiktok.hotfresh7" target="_blank">TikTok</a>
-      </div>
+</div>
+
+<!-- BURGER -->
+<div id="burger" class="section">
+  <h2>🍔 Burger</h2>
+
+  <div class="item">
+    <img src="https://images.unsplash.com/photo-1550547660-d9450f859349">
+    <div class="item-text">
+      Cheeseburger
     </div>
+    <div class="price">4,50 €</div>
   </div>
 
-  <div class="container">
+</div>
 
-    <div class="section">
-      <h2>🍕 Pizza</h2>
-      <div class="sub">Alle Pizzen auch mit Käserand erhältlich / همه پیتزا ها با لبه پنیری موجود است</div>
-      <img src="pizza.jpg" alt="Pizza" onerror="this.src='https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=1400&q=80'">
-      <div class="grid">
-        <div class="item"><div class="item-top"><span>01 Margherita</span><span class="price">7,50 €</span></div><div class="fa">مارگاریتا</div><div class="desc">mit Tomaten und Käse</div></div>
-        <div class="item"><div class="item-top"><span>02 Scharfe Pizza</span><span class="price">8,00 €</span></div><div class="fa">پیتزای تند</div><div class="desc">Salami, Jalapeños</div></div>
-        <div class="item"><div class="item-top"><span>03 Salami</span><span class="price">7,50 €</span></div><div class="fa">سالامی</div><div class="desc">mit Salami</div></div>
-        <div class="item"><div class="item-top"><span>04 Prosciutto</span><span class="price">8,00 €</span></div><div class="fa">ژامبون</div><div class="desc">mit Truthahn-Schinken</div></div>
-        <div class="item"><div class="item-top"><span>05 Funghi</span><span class="price">8,00 €</span></div><div class="fa">قارچ</div><div class="desc">mit Champignons</div></div>
-        <div class="item"><div class="item-top"><span>06 Tonno</span><span class="price">8,00 €</span></div><div class="fa">تونو</div><div class="desc">mit Thunfisch und Zwiebeln</div></div>
-        <div class="item"><div class="item-top"><span>07 Vegetaria</span><span class="price">8,50 €</span></div><div class="fa">سبزیجات</div><div class="desc">Broccoli, Spinat, Paprika, Pilze, Zwiebeln</div></div>
-        <div class="item"><div class="item-top"><span>08 Pollo</span><span class="price">9,00 €</span></div><div class="fa">پولو</div><div class="desc">bitte Zutaten später prüfen</div></div>
-        <div class="item"><div class="item-top"><span>09 Spicy Chicken</span><span class="price">9,00 €</span></div><div class="fa">مرغ تند</div><div class="desc">Hähnchen, Zwiebeln, Paprika, Jalapeños</div></div>
-        <div class="item"><div class="item-top"><span>10 Hawaii Spezial</span><span class="price">8,00 €</span></div><div class="fa">هاوایی مخصوص</div><div class="desc">Truthahn-Schinken, Ananas</div></div>
-        <div class="item"><div class="item-top"><span>11 Milano</span><span class="price">9,00 €</span></div><div class="fa">میلانو</div><div class="desc">Truthahn-Schinken, Thunfisch, Pilze, Spinat</div></div>
-        <div class="item"><div class="item-top"><span>12 Spinaci</span><span class="price">8,00 €</span></div><div class="fa">اسپیناجی</div><div class="desc">Spinat, Knoblauch</div></div>
-        <div class="item"><div class="item-top"><span>13 Broccoli</span><span class="price">8,50 €</span></div><div class="fa">بروکلی</div><div class="desc">Broccoli, Knoblauch</div></div>
-        <div class="item"><div class="item-top"><span>14 Inferno</span><span class="price">8,00 €</span></div><div class="fa">اینفرنو</div><div class="desc">Thunfisch, scharfe Peperoni</div></div>
-        <div class="item"><div class="item-top"><span>15 Italia</span><span class="price">8,00 €</span></div><div class="fa">ایتالیا</div><div class="desc">Spinat, Zwiebeln, Knoblauch</div></div>
-        <div class="item"><div class="item-top"><span>16 Calzone mit Spinat</span><span class="price">8,00 €</span></div><div class="fa">کالزونه با اسفناج</div><div class="desc">Truthahn-Schinken, Champignons, Thunfisch, Paprika</div></div>
-        <div class="item"><div class="item-top"><span>17 Calzone Vegetarisch</span><span class="price">7,50 €</span></div><div class="fa">کالزونه سبزیجات</div><div class="desc">Spinat, Zwiebeln, Paprika, Champignons</div></div>
-        <div class="item"><div class="item-top"><span>18 Calzone Hollandaise</span><span class="price">9,00 €</span></div><div class="fa">کالزونه هلندیز</div><div class="desc">Hähnchen, Broccoli</div></div>
-        <div class="item"><div class="item-top"><span>19 Paprika</span><span class="price">7,50 €</span></div><div class="fa">پاپریکا</div><div class="desc">mit Paprika</div></div>
-        <div class="item"><div class="item-top"><span>20 Rustical</span><span class="price">8,50 €</span></div><div class="fa">روستیکال</div><div class="desc">Paprika, Truthahn-Schinken, Thunfisch, Zwiebeln</div></div>
-        <div class="item"><div class="item-top"><span>21 Don Vanco</span><span class="price">8,60 €</span></div><div class="fa">دان وانکو</div><div class="desc">Thunfisch, Spinat, Champignons</div></div>
-        <div class="item"><div class="item-top"><span>22 Hot & Fresh Spezial Pizza</span><span class="price">24,00 €</span></div><div class="fa">پیتزای مخصوص هات اند فرش</div><div class="desc">Spezialpizza des Hauses</div></div>
-      </div>
+<!-- AFGHAN -->
+<div id="afghan" class="section">
+  <h2>🍛 Afghanische Gerichte</h2>
+
+  <div class="item">
+    <img src="https://images.unsplash.com/photo-1631452180539-96aca7d48617">
+    <div class="item-text">
+      Qabili Palau<br>
+      <small>Reis mit Fleisch & Karotten</small>
     </div>
-
-    <div class="section">
-      <h2>🍔 Burger & 🍝 Pasta</h2>
-      <div class="sub">Burger und Pasta / برگر و پاستا</div>
-      <img src="burger.jpg" alt="Burger" onerror="this.src='https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=1400&q=80'">
-      <div class="grid">
-        <div class="item"><div class="item-top"><span>Hamburger</span><span class="price">4,50 €</span></div><div class="fa">همبرگر</div></div>
-        <div class="item"><div class="item-top"><span>Cheeseburger</span><span class="price">4,50 €</span></div><div class="fa">چیزبرگر</div></div>
-        <div class="item"><div class="item-top"><span>Double Burger</span><span class="price">7,99 €</span></div><div class="fa">دبل برگر</div></div>
-        <div class="item"><div class="item-top"><span>Double Cheeseburger</span><span class="price">7,99 €</span></div><div class="fa">دبل چیزبرگر</div></div>
-        <div class="item"><div class="item-top"><span>Afghan Burger</span><span class="price">4,50 €</span></div><div class="fa">افغان برگر</div></div>
-        <div class="item"><div class="item-top"><span>Penne</span><span class="price">9,50 €</span></div><div class="fa">پنه</div></div>
-        <div class="item"><div class="item-top"><span>Spaghetti</span><span class="price">9,50 €</span></div><div class="fa">اسپاگتی</div></div>
-        <div class="item"><div class="item-top"><span>Pasta Napoli</span><span class="price">8,50 €</span></div><div class="fa">پاستا ناپولی</div></div>
-        <div class="item"><div class="item-top"><span>Pasta Bolognese</span><span class="price">9,50 €</span></div><div class="fa">پاستا بولونز</div></div>
-      </div>
-    </div>
-
-    <div class="section">
-      <h2>🍛 Afghanische Gerichte</h2>
-      <div class="sub">Afghanische Spezialitäten / غذاهای افغانی</div>
-      <img src="qabili.jpg" alt="Qabili Palau" onerror="this.src='https://images.unsplash.com/photo-1604908176997-4317db6f0a18?auto=format&fit=crop&w=1400&q=80'">
-      <div class="grid">
-        <div class="item"><div class="item-top"><span>Qabili Palau</span><span class="price">10,00 €</span></div><div class="fa">قابلی پلو</div><div class="desc">afghanischer Reis mit Fleisch</div></div>
-        <div class="item"><div class="item-top"><span>Mantu (5 Stück)</span><span class="price">7,50 €</span></div><div class="fa">منتو (۵ عدد)</div></div>
-        <div class="item"><div class="item-top"><span>Mix-Teller</span><span class="price">6,50 €</span></div><div class="fa">میکس پلیت</div><div class="desc">gemischter Teller</div></div>
-        <div class="item"><div class="item-top"><span>Sabzi</span><span class="price">4,99 €</span></div><div class="fa">سبزی</div><div class="desc">frischer Spinat, Klee und Reis</div></div>
-        <div class="item"><div class="item-top"><span>Sambosa</span><span class="price">1,80 €</span></div><div class="fa">سمبوسه</div><div class="desc">gefüllt mit Rindfleisch und Gemüse</div></div>
-        <div class="item"><div class="item-top"><span>Pakora (afghanisch)</span><span class="price">2,50 €</span></div><div class="fa">پاکوره افغانی</div></div>
-        <div class="item"><div class="item-top"><span>Bolani</span><span class="price">2,50 €</span></div><div class="fa">بولانی</div><div class="desc">gefüllt mit Kartoffeln und Gemüse</div></div>
-      </div>
-    </div>
-
-    <div class="section">
-      <h2>📅 Zwei mal in der Woche</h2>
-      <div class="sub">Zwei mal in der Woche / دو بار در هفته</div>
-      <div class="grid">
-        <div class="item"><div class="item-top"><span>Pacha + Nan + Salat</span><span class="price">13,49 €</span></div><div class="fa">پاچه + نان + سالاد</div></div>
-        <div class="item"><div class="item-top"><span>Mantu (5 Stück)</span><span class="price">4,00 €</span></div><div class="fa">منتو (۵ عدد)</div></div>
-        <div class="item"><div class="item-top"><span>Chapli Kabab + Nan (3 Stück)</span><span class="price">12,00 €</span></div><div class="fa">چپلی کباب + نان (۳ عدد)</div></div>
-        <div class="item"><div class="item-top"><span>Afghani Quifi</span><span class="price">7,49 €</span></div><div class="fa">کوفته افغانی</div></div>
-        <div class="item"><div class="item-top"><span>Afghani Sheryakh</span><span class="price">7,49 €</span></div><div class="fa">شیریخ افغانی</div></div>
-      </div>
-    </div>
-
-    <div class="section">
-      <h2>🍟 Snacks</h2>
-      <div class="sub">Snacks / اسنک</div>
-      <img src="snacks.jpg" alt="Snacks" onerror="this.src='https://images.unsplash.com/photo-1573080496219-bb080dd4f877?auto=format&fit=crop&w=1400&q=80'">
-      <div class="grid">
-        <div class="item"><div class="item-top"><span>Pommes klein</span><span class="price">2,50 €</span></div><div class="fa">سیب زمینی کوچک</div></div>
-        <div class="item"><div class="item-top"><span>Pommes groß</span><span class="price">3,99 €</span></div><div class="fa">سیب زمینی بزرگ</div></div>
-        <div class="item"><div class="item-top"><span>Chicken Nuggets (6 Stück)</span><span class="price">3,50 €</span></div><div class="fa">ناگت مرغ (۶ عدد)</div></div>
-        <div class="item"><div class="item-top"><span>Chicken Wings (6 Stück)</span><span class="price">4,99 €</span></div><div class="fa">بال مرغ (۶ عدد)</div></div>
-        <div class="item"><div class="item-top"><span>Chapli Kabab + Nan (3 Stück)</span><span class="price">12,00 €</span></div><div class="fa">چپلی کباب + نان (۳ عدد)</div></div>
-        <div class="item"><div class="item-top"><span>Afghani Quifi</span><span class="price">1,99 €</span></div><div class="fa">کوفی افغانی</div></div>
-        <div class="item"><div class="item-top"><span>Afghani Sheryakh</span><span class="price">7,49 €</span></div><div class="fa">شیریخ افغانی</div></div>
-      </div>
-    </div>
-
-    <div class="section">
-      <h2>🥤 Getränke & ☕ Tee</h2>
-      <div class="sub">Getränke und Tee / نوشیدنی و چای</div>
-      <img src="tea.jpg" alt="Getränke und Tee" onerror="this.src='https://images.unsplash.com/photo-1544145945-f90425340c7e?auto=format&fit=crop&w=1400&q=80'">
-      <div class="grid">
-        <div class="item"><div class="item-top"><span>Coca-Cola (0,33 l)</span><span class="price">2,50 €</span></div><div class="fa">کوکاکولا</div></div>
-        <div class="item"><div class="item-top"><span>Fanta (0,33 l)</span><span class="price">2,50 €</span></div><div class="fa">فانتا</div></div>
-        <div class="item"><div class="item-top"><span>Sprite (0,33 l)</span><span class="price">2,50 €</span></div><div class="fa">اسپرایت</div></div>
-        <div class="item"><div class="item-top"><span>Mezzo Mix (0,33 l)</span><span class="price">2,00 €</span></div><div class="fa">متزو میکس</div></div>
-        <div class="item"><div class="item-top"><span>Capri Sun</span><span class="price">1,00 €</span></div><div class="fa">کاپری سان</div></div>
-        <div class="item"><div class="item-top"><span>Wasser (0,5 l)</span><span class="price">1,50 €</span></div><div class="fa">آب</div></div>
-        <div class="item"><div class="item-top"><span>Eistee (0,5 l)</span><span class="price">2,00 €</span></div><div class="fa">آیس تی</div></div>
-        <div class="item"><div class="item-top"><span>Red Bull</span><span class="price">3,00 €</span></div><div class="fa">ردبول</div></div>
-        <div class="item"><div class="item-top"><span>Ayran</span><span class="price">1,50 €</span></div><div class="fa">آیران</div></div>
-        <div class="item"><div class="item-top"><span>Schwarzer Tee</span><span class="price">1,00 €</span></div><div class="fa">چای سیاه</div></div>
-        <div class="item"><div class="item-top"><span>Grüner Tee</span><span class="price">1,00 €</span></div><div class="fa">چای سبز</div></div>
-        <div class="item"><div class="item-top"><span>Afghanischer Tee</span><span class="price">2,99 €</span></div><div class="fa">چای افغانی</div></div>
-        <div class="item"><div class="item-top"><span>Sherchai</span><span class="price">7,50 €</span></div><div class="fa">شیر چای</div></div>
-        <div class="item"><div class="item-top"><span>Sherchai & Parata + Honig</span><span class="price">7,50 €</span></div><div class="fa">شیر چای و پراته با عسل</div></div>
-      </div>
-    </div>
-
+    <div class="price">10,00 €</div>
   </div>
 
-  <footer>
-    © 2026 Hot & Fresh Cuisine
-  </footer>
+</div>
+
+<!-- SNACKS -->
+<div id="snacks" class="section">
+  <h2>🍟 Snacks</h2>
+
+  <div class="item">
+    <img src="https://images.unsplash.com/photo-1571091718767-18b5b1457add">
+    <div class="item-text">
+      Pommes
+    </div>
+    <div class="price">3,50 €</div>
+  </div>
+
+</div>
+
+<!-- GETRÄNKE -->
+<div id="drinks" class="section">
+  <h2>🥤 Getränke</h2>
+
+  <div class="item">
+    <img src="https://images.unsplash.com/photo-1581006852262-e4307cf6283a">
+    <div class="item-text">
+      Cola 0,33l
+    </div>
+    <div class="price">2,50 €</div>
+  </div>
+
+</div>
+
+<!-- SOCIAL -->
+<div class="social">
+  <a href="https://instagram.com/hot.fresh.duisburg7" target="_blank">📸 Instagram</a>
+  <a href="https://tiktok.com/@tiktok.hotfresh7" target="_blank">🎵 TikTok</a>
+</div>
+
+<script>
+function scrollToSection(id){
+  document.getElementById(id).scrollIntoView({behavior:"smooth"});
+}
+</script>
 
 </body>
 </html>
